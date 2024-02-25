@@ -1,64 +1,83 @@
-CREATE TABLE "department" (
-    "dep_num" varchar   NOT NULL,
-    "dep_name" varchar   NOT NULL,
-    CONSTRAINT "pk_department" PRIMARY KEY (
-        "dep_num"
+-- Drop Tables if Existing
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS titles;
+
+-- Exported from QuickDBD: Specifying Data Types, Primary Keys & Foreign Keys 
+-- Import CSV Files Into Corresponding SQL Table
+CREATE TABLE "departments" (
+    "dept_no" VARCHAR   NOT NULL,
+    "dept_name" VARCHAR   NOT NULL,
+    CONSTRAINT "pk_departments" PRIMARY KEY (
+        "dept_no"
      )
 );
 
-CREATE TABLE "employee_department_junction" (
-    "employee_num" integer   NOT NULL,
-    "dep_num" varchar   NOT NULL
+CREATE TABLE "dept_emp" (
+    "emp_no" INT   NOT NULL,
+    "dept_no" VARCHAR   NOT NULL,
+    "from_date" DATE   NOT NULL,
+    "to_date" DATE   NOT NULL
 );
 
-CREATE TABLE "department_managers" (
-    "dep_num" varchar   NOT NULL,
-    "employee_num" integer   NOT NULL
+CREATE TABLE "dept_manager" (
+    "dept_no" VARCHAR   NOT NULL,
+    "emp_no" INT   NOT NULL,
+    "from_date" DATE   NOT NULL,
+    "to_date" DATE   NOT NULL
 );
 
 CREATE TABLE "employees" (
-    "employee_num" integer   NOT NULL,
-    "employee_title" varchar   NOT NULL,
-    "birthdate" date   NOT NULL,
-    "first_name" varchar   NOT NULL,
-    "last_name" varchar   NOT NULL,
-    "sex" varchar   NOT NULL,
-    "hire_date" date   NOT NULL,
+    "emp_no" INT   NOT NULL,
+    "birth_date" DATE   NOT NULL,
+    "first_name" VARCHAR   NOT NULL,
+    "last_name" VARCHAR   NOT NULL,
+    "gender" VARCHAR   NOT NULL,
+    "hire_date" DATE   NOT NULL,
     CONSTRAINT "pk_employees" PRIMARY KEY (
-        "employee_num"
+        "emp_no"
      )
 );
 
-CREATE TABLE "employee_salaries" (
-    "employee_num" integer   NOT NULL,
-    "salary" integer   NOT NULL,
-    CONSTRAINT "pk_employee_salaries" PRIMARY KEY (
-        "employee_num"
-     )
+CREATE TABLE "salaries" (
+    "emp_no" INT   NOT NULL,
+    "salary" INT   NOT NULL,
+    "from_date" DATE   NOT NULL,
+    "to_date" DATE   NOT NULL
 );
 
-CREATE TABLE "job_titles" (
-    "title_id" varchar   NOT NULL,
-    "title" varchar   NOT NULL,
-    CONSTRAINT "pk_job_titles" PRIMARY KEY (
-        "title_id"
-     )
+CREATE TABLE "titles" (
+    "emp_no" INT   NOT NULL,
+    "title" VARCHAR   NOT NULL,
+    "from_date" DATE   NOT NULL,
+    "to_date" DATE   NOT NULL
 );
 
-ALTER TABLE "employee_department_junction" ADD CONSTRAINT "fk_employee_department_junction_employee_num" FOREIGN KEY("employee_num")
-REFERENCES "employees" ("employee_num");
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
 
-ALTER TABLE "employee_department_junction" ADD CONSTRAINT "fk_employee_department_junction_dep_num" FOREIGN KEY("dep_num")
-REFERENCES "department" ("dep_num");
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
 
-ALTER TABLE "department_managers" ADD CONSTRAINT "fk_department_managers_dep_num" FOREIGN KEY("dep_num")
-REFERENCES "department" ("dep_num");
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
 
-ALTER TABLE "department_managers" ADD CONSTRAINT "fk_department_managers_employee_num" FOREIGN KEY("employee_num")
-REFERENCES "employees" ("employee_num");
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
 
-ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_employee_num" FOREIGN KEY("employee_num")
-REFERENCES "employee_salaries" ("employee_num");
+ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
 
-ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_employee_title" FOREIGN KEY("employee_title")
-REFERENCES "job_titles" ("title_id");
+ALTER TABLE "titles" ADD CONSTRAINT "fk_titles_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+-- Query * FROM Each Table Confirming Data
+SELECT * FROM departments;
+SELECT * FROM dept_emp;
+SELECT * FROM dept_manager;
+SELECT * FROM employees;
+SELECT * FROM salaries;
+SELECT * FROM titles;
