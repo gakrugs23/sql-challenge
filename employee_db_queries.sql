@@ -1,5 +1,5 @@
 -- Data Analysis --
--- 1. List employee number, last name, first name, sex, and salary
+-- 1. List employee number, last name, first name, sex, and salary for each employee
 
 SELECT employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
 FROM employees
@@ -11,11 +11,10 @@ SELECT first_name, last_name, hire_date
 FROM employees
 WHERE hire_date BETWEEN '1986-01-01' AND '1987-01-01';
 
--- 3. List manager of each department with the following information: department number, department name,
--- manager's employee number, last name, first name
+-- 3. List the manager of each department along with their department number, department name, employee number, last name, and first name.
 
 
--- 4. List the department of each employee with the following information: employee number, last name, first name, and department name
+-- 4. List the department number for each employee along with that employee’s employee number, last name, first name, and department name.
 SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
 FROM dept_emp
 JOIN employees
