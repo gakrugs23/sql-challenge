@@ -1,17 +1,19 @@
 # sql-challenge
 
-This is my submission for Homework #9. There are two SQL files: employee_db_schema.sql and employee_db_queries.sql, as well as Entity_Relationship_Diagram picture. The data provided to populate the database are found in the data folder.
+**This is my submission for Homework #9. **
+
+There are two SQL files: employee_db_schema.sql and employee_db_queries.sql, as well as Entity_Relationship_Diagram picture. The data provided to populate the database are found in the data folder.
 
 This project is divided into three sections: Data Modeling, Data Engineering, and Data Analysis.
 
-Data Modeling
+**Data Modeling**
 
 I used www.quickdatabasediagrams.com as a tool to create an Entity Relationship Diagram. This diagram helped me create models of the database that I was to implement. I saved a screenshot of the final physical model named QuickDBD-export.
 
-Data Engineering
+**Data Engineering**
 
 The ERD design website allowed me to export my entity relationship diagram as a PostgreSQL schema to establish my database's structure. The schema is found in the employee_db_schema.sql file. Here I was able to use PostgreSQL to create the database from the schema, and to import the data from the CSV files.
 
-Data Analysis
+**Data Analysis**
 
 In my data analysis, I created queries answer all 8 of the questions asked.
