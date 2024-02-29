@@ -17,3 +17,7 @@ The ERD design website allowed me to export my entity relationship diagram as a 
 **Data Analysis**
 
 In my data analysis, I created queries and answered all 8 of the questions asked.
+
+Resources:
+
+I used my TA's for help regarding the tables and importing the CSV files in correctly. I used classmates to help answer questions I had and borrowed code from https://github.com/Nazzy88/SQL_Employee-Database_-A-Mystery-in-Two-Parts/blob/master/mystery_sql.sql.
