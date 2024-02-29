@@ -16,4 +16,4 @@ The ERD design website allowed me to export my entity relationship diagram as a 
 
 **Data Analysis**
 
-In my data analysis, I created queries answer all 8 of the questions asked.
+In my data analysis, I created queries and answered all 8 of the questions asked.
