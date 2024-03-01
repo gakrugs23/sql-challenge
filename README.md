@@ -22,3 +22,6 @@ Resources:
 
 I used my TA's for help regarding the tables and importing the CSV files in correctly. I used classmates to help answer questions I had and borrowed code from https://stackoverflow.com/questions/37266095/descending-order-in-sql
 https://stackoverflow.com/questions/2808828/sql-query-problem-how-to-merge-two-lists
+
+
+In my data folder, I also added a screenshots to prove that my tables I created actually work. If you run all 8 of my queries, they also create tables based on the data from my schemas file.
